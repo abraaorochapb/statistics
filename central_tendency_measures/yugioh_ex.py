@@ -9,7 +9,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/fferegrino/yu-gi-oh/refs/hea
 # We use the unique() method to get the unique values in the 'type' column.
 df['type'].unique()
 
-    #%%
+#%%
 # We filter the DataFrame to include only rows where the 'type' column contains the word 'Monster'.
 df_monsters = df[df['type'].str.contains(r'\bMonster\b', na=False)]
 df_monsters.head()
