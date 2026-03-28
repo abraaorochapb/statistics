@@ -9,7 +9,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/fferegrino/yu-gi-oh/refs/hea
 # We use the unique() method to get the unique values in the 'type' column.
 df['type'].unique()
 
-#%%
+    #%%
 # We filter the DataFrame to include only rows where the 'type' column contains the word 'Monster'.
 df_monsters = df[df['type'].str.contains(r'\bMonster\b', na=False)]
 df_monsters.head()
@@ -25,3 +25,12 @@ df_monsters['type'].value_counts()
 # Here we use the normalize parameter to get the relative frequencies of each type of monster card
 # then we multiply by 100 to convert it to percentages.
 df_monsters['type'].value_counts(normalize=True) * 100
+
+# %%
+# Here we use the plot() method to create a bar chart of the counts of each type of monster card.
+(df_monsters['type'].value_counts(normalize=True) * 100).plot(kind='barh')
+plt.xlabel('Percentage of Monster Cards')
+plt.ylabel('Monster Card Type')
+plt.title('Distribution of Monster Card Types')
+plt.tight_layout()
+plt.show()
