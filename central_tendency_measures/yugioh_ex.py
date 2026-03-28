@@ -30,6 +30,7 @@ df_monsters['type'].value_counts(normalize=True) * 100
 # Here we use the plot() method to create a bar chart of the counts of each type of monster card.
 (df_monsters['type'].value_counts(normalize=True) * 100).plot(kind='barh')
 plt.xlabel('Percentage of Monster Cards')
+plt.xlim(0, 60)
 plt.ylabel('Monster Card Type')
 plt.title('Distribution of Monster Card Types')
 plt.tight_layout()
