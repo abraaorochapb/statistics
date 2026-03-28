@@ -35,3 +35,15 @@ plt.ylabel('Monster Card Type')
 plt.title('Distribution of Monster Card Types')
 plt.tight_layout()
 plt.show()
+
+# %%
+# Here we use the groupby() method to group the DataFrame by the 'type' column
+# then we use the quantile() method to calculate the median of the 'atk' column for each group.
+df_monsters.groupby('type')['atk'].quantile(0.5)
+# %%
+df_monsters.groupby('type')['atk'].quantile(0.5).plot(kind='barh')
+plt.xlabel('Median Attack Points')
+plt.ylabel('Monster Card Type')
+plt.title('Median Attack Points by Monster Card Type')
+plt.tight_layout()
+plt.show()
